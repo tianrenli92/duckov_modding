@@ -1,28 +1,25 @@
-﻿using System;
 using Duckov.UI;
 using Duckov.Utilities;
 using ItemStatsSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DisplayItemValue
 {
 
     public class ModBehaviour : Duckov.Modding.ModBehaviour
     {
-        TextMeshProUGUI _text = null;
-        TextMeshProUGUI Text
+        private TextMeshProUGUI? _text;
+    
+        private TextMeshProUGUI Text
         {
             get
             {
-                if (_text == null)
-                {
-                    _text = Instantiate(GameplayDataSettings.UIStyle.TemplateTextUGUI);
-                }
+                _text ??= Instantiate(GameplayDataSettings.UIStyle.TemplateTextUGUI);
                 return _text;
             }
         }
+
         void Awake()
         {
             /*
